@@ -28,15 +28,13 @@
 	    <li>
 	      <a href="research.html">Research</a>
 	      <ul>
-	      	<li><a href="research.html#bluewhales">Assessing blue
-	      	whale recovery</a></li>
+	      	<li><a href="research.html#bluewhales">Assessing blue whale recovery</a></li>
 	      	<li><a href="research.html#ss3sim">Simulating fisheries assessments</a></li>
-		<li><a href="research.html#gradmcmc">Efficient Bayesian
-		algorithms</a></li> 
+		<li><a href="research.html#gradmcmc">Efficient Bayesian algorithms</a></li> 
 	      </ul>
 	    </li>
 	    <li><a href="about.html">About</a></li>
-	    <li><a href="ColeMonnahan_Resume.pdf">Résumé</a></li>
+	    <li><a href="Monnahan_CV.pdf">Résumé</a></li>
 	    <li><a href="contact.html">Contact</a></li>
 	  </ul>
 	</nav>
@@ -49,16 +47,193 @@
 	    <div class="8u 12u(narrower)">
 	      <div id="content">
 		<!-- Content -->
+		<h2> Research </h2>
 		<article>
+		  <p> This is an informal place for me to list my research
+		  projects. It is not meant to be complete or even
+		  informative. Poke around and contact me with any
+		    questions.
+		    </p>
+		  <p>
+		  Broadly speaking I'm interested in developing and
+		  applying quantitative techniques to manage marine
+		  resources efficiently and sustainably.  Below is a
+		  collection of research projects I’ve been involved in,
+		  with newer projects at the top. This is an evolving list
+		  so check back later for more.
+		  </p>
+
 		  <header id="gradmcmc">
 		    <h2>Bayesian algorithms for fisheries models.</h2>
 		    <p>Testing the efficiency of gradient-based MCMC
 		    algorithms</p>
 		  </header>
-		  <p> blah blah
+		  <p>
+		    Bayesian techniques have many advantages in fisheries
+		    science, but many models can often be prohibitively
+		    slow. However, a class of algorithms, called
+		    Hamiltonian Monte Carlo, has been gaining traction in
+		    the statistical community, and has high potential to
+		    substantial reduce run times. 
 		  </p>
+		  <p>
+		    These gradient-based MCMC algorithms are not widely
+		    used in the fisheries community, likely for several
+		    reasons. First, the software typically used for
+		    modeling (ADMB and TMB) do not have these algorithms
+		    available (at least in a usable form). Second, they are
+		    more difficult to understand and tune than traditional
+		    samplers (although new versions are
+		    self-tuning). Consequently, most fisheries analysts
+		    resort to avoiding Hamiltonian algorithms, or using
+		    them with default, suboptimal performance. Therefore
+		    research is needed to test the utility, and demonstrate
+		    the implementation of Hamiltonian algorithms in order
+		    to advance their inclusion in the toolbox of
+		    quantitative fisheries scientists.
+
+		    I have worked to add beta versions of these algorithms
+		    to TMB, and have been comparing their performance
+		    against JAGS. You can see the
+		    code <a href="https://github.com/kaskr/adcomp/blob/master/TMB/R/mcmc.R">
+		    here</a> and I encourage you to try them out and let me
+		    know how it works.
+
+		  </p>
+		  <p> I gave a seminar on these methods where I tried to
+		  explain them as best I could. Have a look if you're
+		  curious: <a href="files/Monnahan_quantsem_2015.pptx">PPT slides</a>.
+		  </p>
+
+		  <header id="halibut">
+		    <h2>Standardizing commercial catch rates for Pacific halibut.</h2>
+		    <p>The effect of hook spacing on catch rates</p>
+		  </header>
+		  <p>
+		    The International Pacific Halibut Commission (IPHC) is
+		    responsible for managing halibut in the North
+		    Pacific. While they have reliable fishery independent
+		    data, the IPHC also uses commercial logbook data to
+		    develop a catch per unit effort (CPUE) index for use in
+		    their stock assessment. There are two steps in creating
+		    an index: (1) determine a reliable unit of effort, and
+		    (2) standardizing the data with statistical techniques
+		    used to remove factors influencing CPUE trends other
+		    than changes in abundance.
+		  </p>
+		  <p>
+		  The nominal unit of effort for halibut long line gear is
+		  a hook, but the efficiency of hooks varies as a function
+		  of how close they are. To address this, I am working with
+		  IPHC staff to reanalyze data collected in an experiment
+		  from the 1970s to establish an “effective hook”
+		  relationship. This relationship can also be elucidated
+		  from the raw catch data themselves and used to
+		  corroborate the results from the empirical analysis. This
+		  new effective hook definition leads directly into the
+		  second step, standardizing the catch data.
+		  </p>
+		  
 		</article>
 
+		  <header id="ss3sim">
+		    <h2>Simulation testing of fisheries stock assessments</h2>
+		    <p>An R package that facilitates reproducible,
+		      flexible, and rapid end-to-end simulation testing
+		      with stock synthesis </p>
+		  </header>
+		  <p>
+		    Fisheries stock assessment models (used to management
+		    fisheries in the US and around the world) are complex
+		    and often unpredictable. One approach to help
+		    understand their statistical behavior is to use
+		    simulation testing. With this in mind a group of
+		    students and postdocs, based mainly at the UW,
+		    developed a software platform called ss3sim
+		    (<a href="https://github.com/ss3sim/ss3sim">code</a>
+		    and <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0092725">paper</a>)
+		    which facilitates this type of simulation testing. So
+		    far we have used our package in 5 studies:
+		    <ol, type="1">
+		      <li> The effect of length bin width. <a href="http://www.sciencedirect.com/science/article/pii/S0165783615301259"> Read more </a> </li>
+		      <li> Using empirical weights instead of somatic growth functions. <a href="http://www.sciencedirect.com/science/article/pii/S0165783615300837"> Read more </a> </li>
+		      <li> Retrospective patterns. <a href="http://icesjms.oxfordjournals.org/content/early/2014/11/20/icesjms.fsu198.abstract"> Read more </a> </li>
+		      <li> Time-varying natural mortality. <a href="http://icesjms.oxfordjournals.org/content/early/2014/04/09/icesjms.fsu055.abstract"> Read more </a> </li>
+		      <li> The importance of length and age composition data. <a href="http://icesjms.oxfordjournals.org/content/early/2014/02/20/icesjms.fsu007.abstract"> Read more </a> </li>
+		      </ol>
+		      <br>Several other studies are ongoing so check back later
+		      for more.
+		  </p>
+
+		  <header id="bluewhales">
+		    <h2>California blue whale assessment.</h2>
+		    <p>Do fatal ship strikes threaten the recovery of this
+		    endangered population?</p>
+		  </header>
+		  <p>
+		   Many populations of whales were hunted to near
+		   extinction, and some have shown signs of recovery while
+		   others remain critically endangered. The blue whales off
+		   California were no exception, and the lack of evidence
+		   for an increase in their population size left many
+		   concerned about ship strikes. The goal of my M.S. thesis
+		   was to investigate the past, present, and future population trends
+		   of this population, and try to quantify the risk of ship
+		   strikes.
+		  </p>
+		<p>
+		  The first step (and my first thesis chapter) was to
+		   estimate how many whales of this population were caught
+		   by whalers, separating those out from other blue whale
+		   populations in the North Pacific. I did this by looking
+		   at the spatial patterns in acoustic calls, which are
+		   unique by population. The resulting estimates of catches
+		   from that chapter fed directly into my second chapter,
+		   which was to estimate their past, current and future
+		   status, as well as the impact of potential threats
+		   (e.g. ship strikes) moving forward. We found that the
+		   whales had likely already recovered, and the lack of
+		   increase was due to environmental limitations. This
+		   positive story went viral in the
+		   news <a href="http://wiley.altmetric.com/details/2658240/news">(see
+		   here)</a>, although some scientists remain skeptical
+		   (which is good for science!).
+		</p>
+		<p>
+		  Trevor and I have applied for more funding to continue
+		  studying blue whales in the North Pacific, so perhaps
+		  there will be more on that later...<br> 
+		  </p>
+		
+
+		<header id="random">
+		    <h2>Random side projects</h2>
+		    <p>Some fun, non-dissertation distractions...</p>
+		</header>
+		<p> I utilize the open source software ADMB a lot for
+		research. For part of my research I needed to have a better
+		understanding of how it works internally, so I dug through
+		the source code to figure it out. As a way to give back I
+		wrote up some informal documentation for other users that
+		hopefully will be useful. Check out some details
+		about <a href="http://www.admb-project.org/examples/admb-tricks/covariance-calculations/">covariance calculations</a>
+		and <a href="http://www.admb-project.org/developers/mcmc/mcmc-guide-for-admb/view">an
+		MCMC guide</a>. 
+		  <p>
+		   I spent some time practicing my visualization skills by
+		   making an animation of the history of whaling. Check it
+		   out <a href="files/global_animation.gif">here</a>.
+		  </p>
+		<p>
+		  I worked with some fellow QERM students to put together a
+		  <a href="http://nkullman.github.io/QERMCollaborations">network
+		  visualization</a> of our program. It's still in beta but
+		  looks pretty cool so far.
+		  </p>
+		  
+		</article> <!--  end of main text -->
+
+		
 	      </div>
 	    </div>
 	  </div>
