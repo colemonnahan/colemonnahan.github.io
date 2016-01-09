@@ -1,2 +1,2 @@
-# colemonnahan.github.io
-My Github user page
+# My Github user page
+See [what it looks like](http://colemonnahan.github.io).
